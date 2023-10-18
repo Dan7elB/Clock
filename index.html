@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clock</title>
+    <link rel="stylesheet" href="Storage/style.css">
+    <style>
+        body{
+            background-color: rgb(10, 10, 10);
+            font-family: Arial;
+            color: rgb(255, 255, 255);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+            width: 70px;
+        }
+        .clock{
+            border-radius: 50%;
+            background-color: rgb(255, 115, 0);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #clock {
+            margin-top: 120px;
+            
+            text-align: center;
+            font-size: 90px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 120px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="clock">
+            <div id="clock">00:00:00</div>
+        </div>
+    </main>
+        <h1 style="font-size: 20px;">Credits: Dan1elB,Chatgpt</h1>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            const clockElement = document.getElementById("clock");
+            clockElement.textContent = timeString;
+        }
+
+        updateClock(); // Call the function immediately to set the initial time.
+
+        // Update the clock every second.
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
